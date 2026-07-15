@@ -1,0 +1,22 @@
+schema_version: 1
+kind: kasa_acceptance_criteria
+client_id: ""
+service_id: ""
+
+record_contract:
+  required_fields:
+    - id
+    - statement
+    - owner
+    - status
+    - validation_method
+    - evidence_location
+    - approver
+  recommended_fields:
+    - related_goal_ids
+    - related_data_item_ids
+    - tested_at
+    - approved_at
+    - notes
+
+criteria: []

@@ -1,0 +1,44 @@
+# Local environment and secret files
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+credentials.*
+secrets.*
+service-account*.json
+
+# Restricted or bulk data locations
+restricted/
+secrets/
+datasets/raw/
+datasets/exports/
+backups/
+*.sql
+*.sqlite
+*.sqlite3
+*.db
+*.dump
+
+# Archives and generated files
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.bak
+*.tmp
+*.temp
+.cache/
+tmp/
+
+# Operating-system and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo

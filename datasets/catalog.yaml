@@ -1,0 +1,28 @@
+schema_version: 1
+kind: kasa_client_datasets
+client_id: ""
+
+record_contract:
+  required_fields:
+    - id
+    - name
+    - classification
+    - canonical_location
+    - owner
+    - lifecycle_status
+    - allowed_uses
+    - access_rule
+    - retention
+  recommended_fields:
+    - description
+    - schema_location
+    - source_system
+    - extraction_date
+    - checksum
+    - row_count
+    - sanitized_sample_location
+    - expires_on
+    - deletion_owner
+    - notes
+
+datasets: []

@@ -1,0 +1,26 @@
+schema_version: 1
+kind: kasa_client_services
+client_id: ""
+
+record_contract:
+  required_fields:
+    - id
+    - name
+    - summary
+    - intended_audiences
+    - outcomes
+    - owner
+    - source_ids
+    - publication_status
+  recommended_fields:
+    - description
+    - process
+    - pricing
+    - service_area
+    - limitations
+    - qualification_rules
+    - calls_to_action
+    - approver
+    - approved_at
+
+services: []

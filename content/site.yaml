@@ -1,0 +1,24 @@
+schema_version: 1
+kind: kasa_client_site
+client_id: ""
+
+site:
+  name: ""
+  title: ""
+  description: ""
+  language: ""
+  primary_domain: ""
+  deployment_target: ""
+  analytics_choice: ""
+  privacy_requirements: []
+  navigation: []
+  page_ids: []
+  primary_conversion_action: ""
+
+record_control:
+  owner: ""
+  source_ids: []
+  publication_status: draft
+  approver: ""
+  approved_at: ""
+  last_reviewed: ""

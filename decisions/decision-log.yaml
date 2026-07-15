@@ -1,0 +1,22 @@
+schema_version: 1
+kind: kasa_client_decisions
+client_id: ""
+
+record_contract:
+  required_fields:
+    - id
+    - date
+    - decision
+    - owner
+    - status
+    - rationale
+    - source_ids
+  recommended_fields:
+    - alternatives_considered
+    - affected_items
+    - approver
+    - approval_reference
+    - review_date
+    - notes
+
+decisions: []
