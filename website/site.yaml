@@ -1,0 +1,20 @@
+schema_version: 1
+kind: client_site
+status: draft            # draft | review | approved — only the approver sets approved
+
+site:
+  title: ""
+  description: ""
+  language: en
+  domain: ""             # production domain
+  deploy_target: ""      # e.g. Cloudflare Pages, Netlify
+  analytics: ""          # approved analytics tool, or "none"
+
+navigation: []           # ordered page ids, e.g. [home, services, about, contact]
+
+contact:
+  email: ""              # publish only client-approved contact details
+  phone: ""
+  address: ""
+  form_destination: ""   # secret NAME from client.yaml, e.g. FORM_WEBHOOK_URL
+  social: []

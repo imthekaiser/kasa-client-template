@@ -1,24 +1,11 @@
-## Scope
+## What changed
 
-Describe the approved task and affected source IDs.
+## Why
 
-## Changes
+## Checklist
 
-Describe the files, records, or references changed.
-
-## Validation
-
-- [ ] Required fields are complete.
-- [ ] Canonical source locations remain unambiguous.
-- [ ] No secret values are present.
-- [ ] No restricted data is present in Git, diffs, logs, or attachments.
-- [ ] Generated content is distinguishable from approved source material.
-- [ ] Publication status and approval evidence are recorded where applicable.
-- [ ] Acceptance criteria or validation evidence are updated where applicable.
-- [ ] `client.yaml` is updated when source locations, owners, lifecycle states, or context packs changed.
-
-## Human approval
-
-- Approver:
-- Approval scope:
-- Approval evidence:
+- [ ] No secret values anywhere in the diff.
+- [ ] No personal, financial, customer-level, or regulated data added.
+- [ ] Any `status: approved` change was made by the approver in `client.yaml`.
+- [ ] Files over 10 MB went to external storage and are listed in `client.yaml`.
+- [ ] Material decisions recorded in `notes/decisions.md`.

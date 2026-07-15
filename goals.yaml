@@ -1,0 +1,9 @@
+schema_version: 1
+kind: client_goals
+
+goals: []
+# - id: launch-website
+#   statement: Launch an informational website staff can maintain.
+#   measure: Site live on the production domain with owner approval.
+#   priority: high       # high | medium | low
+#   status: open         # open | done | dropped

@@ -1,68 +1,32 @@
 schema_version: 1
-kind: kasa_client
+kind: client
 
 client:
-  id: ""
-  name: ""
-  status: ""
-  owner: ""
-  primary_contact_id: ""
-  default_classification: confidential
+  id: ""                 # kebab-case, matches the repo name client-{id}
+  name: ""               # public-facing name
+  legal_name: ""
+  status: prospect       # prospect | active | paused | former
+  timezone: ""
+  approver: ""           # human who approves public content and launches
 
 engagement:
-  service_ids: []
-  current_phase: ""
-  engagement_owner: ""
-  human_approver: ""
-  repositories:
-    client_core: ""
-    service_outputs: []
+  services: []           # e.g. [website-launch]
+  phase: assess          # assess | design | build | validate | transfer | improve
+  notes: ""
 
-sources:
-  goals: goals/goals.yaml
-  intake_questionnaire: intake/questionnaire.md
-  intake_responses: intake/responses.md
-  company: content/company.yaml
-  services: content/services.yaml
-  contact: content/contact.yaml
-  site: content/site.yaml
-  assets: assets/catalog.yaml
-  datasets: datasets/catalog.yaml
-  decisions: decisions/decision-log.yaml
-  publication_approvals: approvals/publication-approvals.yaml
-  acceptance_criteria: deliverables/acceptance-criteria.yaml
-  external_sources: references/external-sources.yaml
-  secret_bindings: references/secret-bindings.yaml
+repositories: {}         # e.g. website: client-{id}-website
 
-data_item_contract:
-  required_fields:
-    - id
-    - type
-    - classification
-    - canonical_location
-    - owner
-    - lifecycle_status
-    - allowed_uses
-  recommended_fields:
-    - source_ids
-    - checksum
-    - publication_status
-    - agent_access
-    - retention
-    - expires_on
-    - notes
+# Anything too large, raw, or sensitive for Git: one entry per item.
+external_storage: []
+# - name: product-photo-archive
+#   location: ""         # bucket, drive, or system name — never a credential
+#   contents: ""
+#   access: ""
 
-data_items: []
+# Secret NAMES only. Values live in the deploy platform or secret manager.
+secrets: []
+# - name: FORM_WEBHOOK_URL
+#   used_by: website contact form
+#   stored_in: deploy platform environment
 
-context_pack_contract:
-  required_fields:
-    - id
-    - purpose
-    - source_ids
-    - allowed_workers
-
-context_packs: []
-
-metadata:
-  created_at: ""
-  last_updated: ""
+data_notes: []           # client-specific data restrictions, if any

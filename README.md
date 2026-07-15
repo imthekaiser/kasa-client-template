@@ -1,58 +1,47 @@
 # KASA Client Repository Template
 
-Canonical control-plane template for a private `client-{client_id}` repository.
+Template for `client-{client_id}` — the single private source of truth for
+one client engagement. Humans and agents read this repo during builds;
+everything they need is either in it or listed in `client.yaml` under
+`external_storage`.
 
-This repository structure is designed to hold normal confidential engagement information, structured client facts, approved website content, decisions, manifests, and references to externally stored data. It is not a secret manager, restricted-data store, database backup location, or bulk-file archive.
+## Layout
 
-## Use
-
-1. Create a new **private** repository from this template using the name `client-{client_id}`.
-2. Complete every required field in `client.yaml`.
-3. Record goals, intake responses, structured content, decisions, and approvals in their canonical files.
-4. Register every material source in `client.yaml` or the referenced catalog.
-5. Give agents only the smallest context pack required for an approved task.
-6. Copy content into a deployable repository only after it is explicitly approved for public use.
-
-## Start here
-
-- Human and AI workers start with `client.yaml`.
-- Worker rules are in `AGENTS.md`.
-- Secret binding names are recorded in `references/secret-bindings.yaml`; secret values are never stored here.
-- Large or restricted files are recorded in `datasets/catalog.yaml` or `references/external-sources.yaml` and stored in an approved external system.
-
-## Repository map
-
-| Path | Purpose |
+| Path | What lives there |
 |---|---|
-| `client.yaml` | Canonical client manifest and source index |
-| `goals/` | Business goals and measurable outcomes |
-| `intake/` | Intake questions, responses, and normal source documents |
-| `content/` | Structured company, service, contact, and page content |
-| `assets/` | Approved, reasonably sized working and web-ready assets |
-| `datasets/` | Dataset catalog, schemas, and sanitized samples only |
-| `decisions/` | Material engagement decisions and rationale |
-| `approvals/` | Publication and delivery approvals |
-| `deliverables/` | Final or client-review deliverables |
-| `references/` | External source and secret-binding references |
+| `client.yaml` | Client facts: identity, approver, repos, external storage, secret names |
+| `goals.yaml` | Business goals for the engagement |
+| `tasks/` | One YAML per scoped agent task |
+| `intake/` | Questionnaire, responses, and client-provided documents |
+| `brand/` | Brand guide plus web-ready logos, icons, and photos |
+| `website/` | Site config (`site.yaml`) and one markdown file per page |
+| `data/` | Small working datasets (CSV/JSON) for analysis |
+| `notes/` | Meeting notes and the running decision log |
 
-## Data boundaries
+Add folders only when the engagement needs them.
 
-Allowed in this repository:
+## Setup
 
-- Goals, intake responses, meeting notes, and normal working documents
-- Structured facts and draft content
-- Approved public content and web-ready assets
-- Dataset manifests, schemas, checksums, and sanitized samples
-- Decisions, approval records, and acceptance criteria
+1. Create a new **private** repo named `client-{client_id}` from this template.
+2. Fill in `client.yaml` and `goals.yaml`.
+3. Run the intake: record answers in `intake/responses.md`, drop provided
+   files into `intake/documents/`.
+4. Add brand assets and draft website pages as the engagement progresses.
 
-Never store here:
+## The five rules
 
-- Passwords, access tokens, private keys, API keys, or connection strings
-- Personal, regulated, financial, customer-level, or otherwise restricted datasets
-- Production database exports or backups
-- Large raw media libraries or frequently regenerated bulk exports
-- Files requiring guaranteed expiration or deletion
+1. **Private.** This repo is confidential by default. Never make it public.
+2. **No secrets in Git.** Reference secrets by name in `client.yaml`; values
+   live only in the deploy platform or secret manager.
+3. **No sensitive or bulk data in Git.** Personal, financial, customer-level,
+   or regulated data — and files over 10 MB — go to external storage, with
+   one line in `client.yaml` → `external_storage`. Git history is permanent,
+   so nothing that may need guaranteed deletion goes in it.
+4. **Approval is a status field.** Public output is built only from files
+   with `status: approved`, and only the approver named in `client.yaml`
+   flips a status to `approved`, via pull request. The merged PR is the
+   approval record.
+5. **One source of truth.** Don't restate a fact in two files; link to where
+   it lives. Output repos (like the website) receive copies, never originals.
 
-## Publication rule
-
-Only content or assets with `publication_status: approved_public` and a corresponding approval record may be copied into a public website build or public asset location.
+Full policy: `docs/data-management.md` in the `kasa-platform` repo.

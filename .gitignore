@@ -14,8 +14,8 @@ service-account*.json
 # Restricted or bulk data locations
 restricted/
 secrets/
-datasets/raw/
-datasets/exports/
+data/raw/
+data/exports/
 backups/
 *.sql
 *.sqlite
